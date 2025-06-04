@@ -1,0 +1,30 @@
+spring:
+    application:
+        name: user-service
+
+    flyway:
+        enabled: true
+        locations: classpath:db/migration
+        baseline-on-migrate: true
+
+    datasource:
+        url: jdbc:postgresql://localhost:5432/LoginReactTest
+        username: postgres
+        password: postgres
+
+server:
+    port: 8082
+
+eureka:
+    client:
+        service-url:
+            defaultZone: http://localhost:8761/eureka
+
+resilience4j:
+    circuitbreaker:
+        instances:
+            testService:  # ? This name MUST match the @CircuitBreaker name
+                slidingWindowSize: 5
+                failureRateThreshold: 50
+                waitDurationInOpenState: 5s
+                permittedNumberOfCallsInHalfOpenState: 2
