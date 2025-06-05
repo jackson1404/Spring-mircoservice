@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: demo
+  datasource:
+#    todos:
+#      url: jdbc:postgresql://localhost:5432/todo_db
+#      username: postgres
+#      password: postgres
+#      driver-class-name: org.postgresql.Driver
+#
+    todos:
+      url: jdbc:mysql://localhost:3306/mysqltodo_db
+      username: root
+      password: Winmin14042004
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+    topics:
+      url: jdbc:postgresql://localhost:5432/topic_db
+      username: postgres
+      password: postgres
+      driver-class-name: org.postgresql.Driver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+
+
+server:
+  port: 8081
